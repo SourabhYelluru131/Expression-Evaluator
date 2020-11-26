@@ -3,17 +3,17 @@ const operators = ['+', '-', '*', '/'];
 const checkPostFix = (expression) => {
     let arr = expression.split(" ");
     let count = 0;
-    arr.forEach(x => {
-        if (operators.includes(x)) {
+
+    for (var i = 0; i < arr.length; i++) {
+        if (operators.includes(arr[i])) {
             count -= 2;
-        }
-        else {
-            count += 1;
         }
         if (count < 0) {
             return false;
         }
-    });
+        count += 1;
+    }
+
     return true;
 }
 
