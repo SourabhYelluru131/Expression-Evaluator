@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expression Parser</title>
+    <script src="index.js" defer></script>
+</head>
+
+<body style="background-color:rgb(215, 249, 253); text-align: center;">
+    <div>
+        <h1>Expression Parser</h1>
+    </div>
+
+    <div>
+        <input type="radio" name="choice" value=1 />Prefix
+        <input type="radio" name="choice" value=2 />Postfix
+    </div>
+
+    <div>
+        <p>Enter the expression with spaces in between the number and operator.</p>
+        <input type="text" id="exp" placeholder="Enter your expression here"
+            style="max-width: 300px; min-width: 250px" />
+        <br>
+        <button id="calculate" onClick="evaluateExpression()" style="margin: 1em auto; cursor: pointer;">Evaluate
+            expression</button>
+        <p id="result"></p>
+    </div>
+</body>
+
+</html>
