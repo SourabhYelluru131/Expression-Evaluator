@@ -25,10 +25,9 @@ def check_postfix(ex):
     for x in arr:
         if x in operators:
             count -= 2
-        else:
-            count += 1
         if count < 0:
             return False
+        count += 1
     return True
 
 
