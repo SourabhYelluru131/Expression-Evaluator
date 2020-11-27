@@ -79,16 +79,18 @@ const prefixEval = (expression) => {
 const postfixEval = (expression) => {
     arr = expression.split(" ");
     let stack = [];
-    arr.forEach(element => {
-        if (operators.includes(element)) {
-            let op1 = stack.pop();
+    // arr.forEach(element => {
+    for (var i = 0; i < arr.length; i++) {
+        if (operators.includes(arr[i])) {
             let op2 = stack.pop();
-            stack.push(evaluate(op1, op2, element));
+            let op1 = stack.pop();
+            stack.push(evaluate(op1, op2, arr[i]));
         }
         else {
-            stack.push(element);
+            stack.push(arr[i]);
         }
-    });
+    }
+
     return stack[0];
 }
 
@@ -107,6 +109,13 @@ const choice = () => {
 
 function evaluateExpression() {
     let exp = document.getElementById("exp").value;
+
+    if (exp == "") {
+        alert("Please enter an expression");
+        return;
+    }
+
+
     const rbs = document.querySelectorAll('input[name="choice"]');
     let selectedChoice;
     for (const rb of rbs) {
@@ -115,12 +124,13 @@ function evaluateExpression() {
             break;
         }
     }
+
     if (selectedChoice == undefined) {
         alert("Please choose either prefix or postfix");
     }
 
     if (selectedChoice == 1) {
-        if (checkPreFix(exp) == true) {
+        if (checkPreFix(exp)) {
             let result = prefixEval(exp);
             document.getElementById("result").innerHTML = "Result of the expression is: " + result;
         }
@@ -138,4 +148,3 @@ function evaluateExpression() {
         }
     }
 }
-
