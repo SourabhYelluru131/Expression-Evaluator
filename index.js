@@ -43,7 +43,6 @@ const checkPreFix = (expression) => {
 const evaluate = (op1, op2, x) => {
     let op1r = parseInt(op1);
     let op2r = parseInt(op2);
-    document.getElementById("result").innerHTML = "Operation : " + op1r + x + op2r;
     switch (x) {
         case '+':
             return op1r + op2r;
